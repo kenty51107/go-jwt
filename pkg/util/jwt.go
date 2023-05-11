@@ -19,7 +19,7 @@ func getJWTSecret() []byte {
     return []byte(os.Getenv("JWT_SECRET_KEY"))
 }
 
-func GenerateSignedToken(userID int64, username string) (string, error) {
+func GenerateSignedString(userID int64, username string) (string, error) {
     token := jwt.NewWithClaims(jwt.SigningMethodHS256, MyJWTClaims{
         ID: strconv.Itoa(int(userID)),
         Username: username,
